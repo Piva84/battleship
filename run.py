@@ -143,6 +143,11 @@ def print_grid():
     global grid
     global alphabet
 
+    print(". = water or empty space")
+    print("O = part of ship")
+    print("X = part of ship that was hit with bullet")
+    print("# = water that was shot with bullet, a miss, because it hit no ship")
+
     debug_mode = True
 
     alphabet = alphabet[0: len(grid) +1]
@@ -285,10 +290,7 @@ def main():
 
     print("-----Welcome to Battleships-----")
     print("You have 50 bullets to take down 8 ships, may the battle begin!")
-    print(". = water or empty space")
-    print("O = part of ship")
-    print("X = part of ship that was hit with bullet")
-    print("# = water that was shot with bullet, a miss because it hit no ship")
+    
 
     create_grid()
 
