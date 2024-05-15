@@ -78,7 +78,7 @@ def try_to_place_ship_on_grid(row, col, direction, length):
 
     start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
     if direction == "left":
-         if col - length < 0:
+        if col - length < 0:
             return False
         start_col = col - length + 1
 
@@ -88,7 +88,7 @@ def try_to_place_ship_on_grid(row, col, direction, length):
         end_col = col + length
 
     if direction == "up":
-         if row - length < 0:
+        if row - length < 0:
             return False
         start_row = row - length + 1
 
@@ -286,7 +286,7 @@ def main():
 
     while game_over is False:
         print_grid()
-         print("Number of ships remaining: " + str(num_of_ships - num_of_ships_sunk))
+        print("Number of ships remaining: " + str(num_of_ships - num_of_ships_sunk))
         print("Number of bullets left: " + str(bullets_left))
         shoot_bullet()
         print("----------------------------")
