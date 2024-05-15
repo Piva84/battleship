@@ -124,6 +124,8 @@ def create_grid():
 
     num_of_ships_placed = 0
 
+    ship_positions = []
+
     while num_of_ships_placed != num_of_ships:
         random_row = random.randint(0, rows - 1)
         random_col = random.randint(0, cols - 1)
@@ -155,7 +157,9 @@ def print_grid():
                     print(".", end=" ")
             else:
                 print(grid[row][col], end=" ")
-    print("")
+        print("")
+
+    print("  ", end=" ")
     for i in range(len(grid[0])):
         print(str(i), end=" ")
     print("")
