@@ -143,7 +143,26 @@ def print_grid():
     global grid
     global alphabet
 
-    pass
+    debug_mode = True
+
+    alphabet = alphabet[0: len(grid) +1]
+
+    for row in range(len(grid)):
+        print(alphabet[row], end=") ")
+        for col in range(len(grid[row])):
+            if grid[row][col] == "O":
+                if debug_mode:
+                    print("O", end=" ")
+                else:
+                    print(".", end=" ")
+            else:
+                print(grid[row][col], end=" ")
+    print("")
+    for i in range(len(grid[0])):
+        print(str(i), end=" ")
+    print("")
+
+
 
 def accept_valid_bullet_placement():
     """
