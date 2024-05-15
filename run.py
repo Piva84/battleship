@@ -172,9 +172,38 @@ def accept_valid_bullet_placement():
     global alphabet
     global grid
 
-    pass
+    is_valid_placement = False
+    row = -1
+    col = -1
+    while is_valid_placement is False:
+        placement = input("Enter row (A-J) and column (0-9) such as A1:\n")
+        # upper() to make the input letter to a capital
+        placement = placement.upper()
+        if len(placement) <= 0 or len(placement) > 2:
+            print("Error: Please enter only one row and column such as A1:\n")
+            continue
+        row = placement[0]
+        col = placement[1]
+        if not row.isalpha() or not col.isnumeric():
+            print("Error: Please enter letter (A-J) for row and (0-9) for column\n")
+            continue
+        row = alphabet.find(row)
+        if not (-1 < row < grid_size):
+            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            continue
+        col = int(col)
+        if not(-1 < col < grid_size):
+            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            continue
+        if grid[row][col] == "#" or grid[row][col] == "X":
+            print("You ahve already shot a bullet here, pick somewhere else")
+            continue
+        if grid[row][col] == "." or grid[row][col] == "O":
+            is_valid_placement = True
 
-    return 0, 0
+    return row, col
+
+
 
 def check_for_ship_sunk():
     """
