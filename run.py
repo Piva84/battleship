@@ -148,7 +148,7 @@ def print_grid():
     print("X = part of ship that was hit with bullet")
     print("# = water that was shot with bullet, a miss, because it hit no ship")
 
-    debug_mode = True
+    debug_mode = False
 
     alphabet = alphabet[0: len(grid) +1]
 
