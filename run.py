@@ -97,7 +97,7 @@ def try_to_place_ship_on_grid(row, col, direction, length):
             return False
         end_row = row + length
 
-    return validate_grid_and_place_ship(0, 0, 0, 0)
+    return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
 
 
 
@@ -220,12 +220,12 @@ def check_for_ship_sunk():
     global ship_positions
     global grid
 
-    for position in positions:
+    for position in ship_positions:
         start_row = position[0]
         end_row = position[1]
         start_col = position[2]
         end_col = position[3]
-        if start_row <= row <= end_row and start_col <= col <= end_col:
+        if start_row <= row < end_row and start_col <= col < end_col:
             # Ship found, now check if it's all sunk
             for r in range(start_row, end_row):
                 for c in range(start_col, end_col):
@@ -273,7 +273,7 @@ def check_for_game_over():
     global bullets_left
     global game_over
 
-    if num_of_ships == num_of_ships_sunk:
+    if num_of_ships_sunk == num_of_ships:
         print("Congrats you won!")
         game_over = True
     elif bullets_left <= 0:
