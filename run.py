@@ -255,7 +255,7 @@ def shoot_bullet():
     elif grid[row][col] =="O":
         print("You hit!", end=" ")
         grid[row][col] = "X"
-        if check_for_ship_sunk(row, col):
+        if check_for_ship_sunk():
             print("A ship was completely sunk!")
             num_of_ships_sunk += 1
         else:
