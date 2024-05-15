@@ -212,7 +212,7 @@ def accept_valid_bullet_placement():
 
 
 
-def check_for_ship_sunk():
+def check_for_ship_sunk(row, col):
     """
     If all parts of a ship have been shot it is sunk and will later increment ships sunk.
     Has return True or False.
@@ -248,14 +248,13 @@ def shoot_bullet():
     print("")
     print("----------------------------")
 
-
     if grid[row][col] == ".":
         print("You missed, no ship was shot")
         grid[row][col] = "#"
     elif grid[row][col] =="O":
         print("You hit!", end=" ")
         grid[row][col] = "X"
-        if check_for_ship_sunk():
+        if check_for_ship_sunk(row, col):
             print("A ship was completely sunk!")
             num_of_ships_sunk += 1
         else:
