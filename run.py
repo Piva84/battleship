@@ -44,3 +44,110 @@ ship_positions = [[]]
 
 # Global variable for alphabet
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+def validate_grid_and_place_ship():
+    """
+    Will check the row or column to see if it is safe to place a ship there.
+    """
+    global grid
+    global ship_positions
+
+    pass
+
+def try_to_place_ship_on_grid():
+    """
+    Based on direction will call helper method to try and place a ship on the grid.
+    Returns validate_grid_and_place_ship which will be True or False.
+    """
+    global grid_size
+
+    pass
+
+    return validate_grid_and_place_ship(0, 0, 0, 0)
+
+def create_grid():
+    """
+    Will create a 10x10 grid and randomly place down ships
+    of different sizes in different directions.
+    Has no return but will use try_to_place_ship_on_grid.
+    """
+    global grid
+    global grid_size
+    global num_of_ships
+    global ship_positions
+
+    pass
+
+    try_to_place_ship_on_grid(0, 0, 0, 0)
+
+def print_grid():
+    """
+    Will print the grid with rows A-J and columns 0-9.
+    has no return
+    """
+    global grid
+    global alphabet
+
+    pass
+
+def accept_valid_bullet_placement():
+    """
+    Will get valid row and column to place bullet shot.
+    Has return row, col, both are integers.
+    """
+    global alphabet
+    global grid
+
+    pass
+
+    return 0, 0
+
+def check_for_ship_sunk():
+    """
+    If all parts of a ship have been shot it is sunk and will increment ships sunk.
+    Has return True or False.
+    """
+    global ship_positions
+    global grid
+
+    pass
+
+def shoot_bullet():
+    """
+    Updates grid and ships based on where the bullet was shot.
+    Has no return but will use accept_valid_bullet_placement.
+    """
+    global grid
+    global num_of_ships_sunk
+    global bullets_left
+
+    row, col = accept_valid_bullet_placement()
+
+    pass
+
+def check_for_game_over():
+    """
+    If all ships have been sunk or we run out of bullets it's game over.
+    Has no return
+    """
+    global num_of_ships_sunk
+    global num_of_ships
+    global bullets_left
+    global game_over
+
+    pass
+
+def main():
+    """
+    Main entry point of application that runs the game loop.
+    Has no return, but will use create_grid, print_grid, shoot_bullet and check_for_game_over.
+    """
+    global game_over
+
+    pass
+
+if __name__ == "__main__":
+    """
+    Will only be called when program is run from terminal or an IDE like "Codeanywhere"
+    """
+    main()
