@@ -71,8 +71,8 @@ def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
 
 def try_to_place_ship_on_grid(row, col, direction, length):
     """
-    Based on direction will call helper method to try and place a ship on the grid.
-    Returns validate_grid_and_place_ship which will be True or False.
+    Based on direction, will call helper method to try and place a ship on the grid.
+    Returns validate_grid_and_place_ship.
     """
     global grid_size
 
@@ -105,7 +105,6 @@ def create_grid():
     """
     Will create a 10x10 grid and randomly place down ships
     of different sizes in different directions.
-    Has no return but will use try_to_place_ship_on_grid.
     """
     global grid
     global grid_size
@@ -138,7 +137,6 @@ def create_grid():
 def print_grid():
     """
     Will print the grid with rows A-J and columns 0-9.
-    has no return
     """
     global grid
     global alphabet
@@ -167,7 +165,7 @@ def print_grid():
 def accept_valid_bullet_placement():
     """
     Will get valid row and column to place bullet shot.
-    Has return row, col, both are integers.
+    Has return row, col.
     """
     global alphabet
     global grid
@@ -207,13 +205,26 @@ def accept_valid_bullet_placement():
 
 def check_for_ship_sunk():
     """
-    If all parts of a ship have been shot it is sunk and will increment ships sunk.
+    If all parts of a ship have been shot it is sunk and will later increment ships sunk.
     Has return True or False.
     """
     global ship_positions
     global grid
 
-    pass
+    for position in positions:
+        start_row = position[0]
+        end_row = position[1]
+        start_col = position[2]
+        end_col = position[3]
+        if start_row <= row <= end_row and start_col <= col <= end_col:
+            # Ship found, now check if it's all sunk
+            for r in range(start_row, end_row):
+                for c in range(start_col, end_col):
+                    if grid[r][c] != "X":
+                        return False
+    return True
+
+
 
 def shoot_bullet():
     """
